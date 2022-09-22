@@ -1,0 +1,3 @@
+/Users/steve/AndroidStudioProjects/BaseArchitecture/core/network/.cxx/Debug/3n5k243i/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+/Users/steve/AndroidStudioProjects/BaseArchitecture/core/network/.cxx/Debug/3n5k243i/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/steve/AndroidStudioProjects/BaseArchitecture/core/network/.cxx/Debug/3n5k243i/armeabi-v7a/CMakeFiles/native-lib.dir
