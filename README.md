@@ -55,7 +55,7 @@ dan **Module 1** tidak perlu tau dari mana dia mendapatkan **Module 2** tersebut
 module harus memprovide atau meng-injeksikan module tersebut ke **Injector** sebelumnya, untuk
 kemudian module tersebut dapat ditemukan oleh **Injector**.
 
-## Dependency Flow
+### Dependency Flow
 
 ```mermaid
 graph LR
