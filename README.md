@@ -72,7 +72,7 @@ berukuran sangat kecil. Oleh Karena itu, akan jauh lebih mudah jika semua module
 core **"Straight Depend" ke Module Core**, dan semua module tetap harus **mengakses Core Module
 melalui Provider**.
 
-## Injector
+## Igniter
 
 Sebagaimana namanya, igniter adalah sebuah module yang bertugas untuk menjadi sumbu api. Igniter
 perlu depend ke semua module, dan **meng-injeksikan** Module-module, API, Widget dll, yang diprovide
