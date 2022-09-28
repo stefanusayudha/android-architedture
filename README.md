@@ -8,16 +8,15 @@ sebelum meledak?
 Well orang bilang, tidak ada arsitektur yang sempurna. Saya cukup setuju, tetapi apa definisi
 sempurna itu? Atau minimal bagaimanakah arsitektur yang baik itu?
 
-Untuk bisa tau seberapa baik sebuah arsitektur, kita membutuhkan sebuah alat untuk mengukurnya. Jadi
-apa alat untuk mengukur baik buruknya sebuah arsitektur?
-
+Untuk bisa tau seberapa baik sebuah arsitektur, kita membutuhkan sebuah alat untuk mengukurnya. 
 Alat tersebut adalah "Alur dependensi" dan "Alur kerja".
 Ya, arsitektur adalah tentang Flow Dependensi dan Flow Runtime. Hal-hal selain itu adalah preferensi saja.
-Tapi disini kita akan "Back to Basic" dengan konsern sepenuhnya pada Flow dependensi dan Flow runtime.
+
+Disini kita akan "Back to Basic" dengan konsern sepenuhnya pada Flow dependensi dan Flow runtime.
 
 Saya memiliki prinsib sederhana; "Jika
 rumit berarti itu salah". Secara naluri, manusia juga pasti akan berfikir seperti itu. Jadi kita
-akan membuat dunia sedikit lebih mudah dengan menghadirkan sebuah module baru pada gradle project ,
+akan membuatnya sedikit lebih mudah dengan menghadirkan sebuah module baru pada gradle project ,
 yaitu : **Provider** dan **Injector**
 
 # Project Arsitektur
