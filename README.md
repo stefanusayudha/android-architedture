@@ -11,7 +11,11 @@ sempurna itu? Atau minimal bagaimanakah arsitektur yang baik itu?
 Untuk bisa tau seberapa baik sebuah arsitektur, kita membutuhkan sebuah alat untuk mengukurnya. Jadi
 apa alat untuk mengukur baik buruknya sebuah arsitektur?
 
-Alat tersebut adalah "Alur dependensi" dan "Alur kerja". Saya memiliki prinsib sederhana; "Jika
+Alat tersebut adalah "Alur dependensi" dan "Alur kerja".
+Ya, arsitektur adalah tentang Flow Dependensi dan Flow Runtime. Hal-hal selain itu adalah preferensi saja.
+Tapi disini kita akan "Back to Basic" dengan konsern sepenuhnya pada Flow dependensi dan Flow runtime.
+
+Saya memiliki prinsib sederhana; "Jika
 rumit berarti itu salah". Secara naluri, manusia juga pasti akan berfikir seperti itu. Jadi kita
 akan membuat dunia sedikit lebih mudah dengan menghadirkan sebuah module baru pada gradle project ,
 yaitu : **Provider** dan **Injector**
@@ -51,7 +55,7 @@ dan **Module 1** tidak perlu tau dari mana dia mendapatkan **Module 2** tersebut
 module harus memprovide atau meng-injeksikan module tersebut ke **Injector** sebelumnya, untuk
 kemudian module tersebut dapat ditemukan oleh **Injector**.
 
-## Dependency Flow
+### Dependency Flow
 
 ```mermaid
 graph LR
@@ -68,7 +72,7 @@ berukuran sangat kecil. Oleh Karena itu, akan jauh lebih mudah jika semua module
 core **"Straight Depend" ke Module Core**, dan semua module tetap harus **mengakses Core Module
 melalui Provider**.
 
-## Injector
+## Igniter
 
 Sebagaimana namanya, igniter adalah sebuah module yang bertugas untuk menjadi sumbu api. Igniter
 perlu depend ke semua module, dan **meng-injeksikan** Module-module, API, Widget dll, yang diprovide
