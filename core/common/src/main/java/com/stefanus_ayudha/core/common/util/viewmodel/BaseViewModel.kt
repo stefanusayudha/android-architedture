@@ -9,12 +9,14 @@ import com.stefanus_ayudha.core.common.domain.model.Error
 import com.stefanus_ayudha.core.common.domain.payload.Payload
 import com.stefanus_ayudha.core.common.util.request.*
 import com.stefanus_ayudha.core.common.util.retrofit.eitherResponseOf
+import com.stefanus_ayudha.core.common.util.viewmodel.state.StateUseCase
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseViewModel : ViewModel() {
-    abstract inner class State<T, P : Payload> {
+abstract class BaseViewModel : ViewModel(), BaseViewModelUseCase {
+
+    abstract inner class State<T, P : Payload> : StateUseCase<T, P>{
         private val state = MutableStateFlow<RequestState<T>>(Default())
         private var job: Job? = null
 
@@ -45,8 +47,8 @@ abstract class BaseViewModel : ViewModel() {
             })
 
         @Composable
-        fun collectAsState() = state.collectAsState()
-        fun request(payload: P) {
+        override fun collectAsState() = state.collectAsState()
+        override fun request(payload: P) {
             state.value = Loading()
             job?.cancel()
             job = viewModelScope.launch(
@@ -68,15 +70,15 @@ abstract class BaseViewModel : ViewModel() {
             }
         }
 
-        fun resetClear() {
+        override fun resetClear() {
             job?.cancel()
             state.value = Default()
         }
 
-        abstract val operator: suspend (payload: P) -> T
+        abstract override val operator: suspend (payload: P) -> T
     }
 
-    fun <P : Payload, T> createState(
+    override fun <P : Payload, T> createState(
         block: suspend (payload: P) -> T
     ): BaseViewModel.State<T, P> {
         return object : State<T, P>() {
@@ -85,5 +87,5 @@ abstract class BaseViewModel : ViewModel() {
         }
     }
 
-    abstract fun clear()
+    abstract override fun clear()
 }
