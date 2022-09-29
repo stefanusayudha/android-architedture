@@ -52,7 +52,7 @@ Setiap module bisa memanggil module lain melalui kontrak yang sudah dideklarasik
 Provider. Selanjutnya, **Injector** akan memprovide module berdasarkan kontrak yang di inginkan,
 dan **Module 1** tidak perlu tau dari mana dia mendapatkan **Module 2** tersebut. Tentusaja sebuah
 module harus memprovide atau meng-injeksikan module tersebut ke **Injector** sebelumnya, untuk
-kemudian module tersebut dapat ditemukan oleh **Injector**.
+kemudian module tersebut dapat ditemukan oleh **Provider**.
 
 ### Dependency Flow
 
