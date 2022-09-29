@@ -76,5 +76,14 @@ abstract class BaseViewModel : ViewModel() {
         abstract val operator: suspend (payload: P) -> T
     }
 
+    fun <P : Payload, T> createState(
+        block: suspend (payload: P) -> T
+    ): BaseViewModel.State<T, P> {
+        return object : State<T, P>() {
+            override val operator: suspend (payload: P) -> T
+                get() = { block.invoke(it) }
+        }
+    }
+
     abstract fun clear()
 }
