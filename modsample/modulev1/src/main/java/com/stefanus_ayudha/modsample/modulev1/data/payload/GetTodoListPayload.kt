@@ -5,7 +5,7 @@ import com.stefanus_ayudha.core.common.domain.payload.Payload
 data class GetTodoListPayload(
     val id: String = ""
 ) : Payload {
-    fun getQueryMap() = hashMapOf<String, String>()
+    override fun getQueryMap() = hashMapOf<String, String>()
         .apply {
             // No query payload
         }

@@ -1,3 +1,5 @@
 package com.stefanus_ayudha.core.common.domain.payload
 
-interface Payload
+interface Payload {
+    fun getQueryMap(): Map<String, String> = hashMapOf()
+}
