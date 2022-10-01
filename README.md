@@ -115,5 +115,5 @@ dalam hal support teknologi, dan dokumentasi, akan tetapi, lihat seberapa sederh
    memberikannya atau memberikan Error / Exception / Either.left apapun yang kalian gunakan.
 2. Data module hanya memprovide data dari Source, memberikan data atau Error jika data tidak
    ditemukan. Sedangkan bagaimana source berperilaku bukanlah konsern dari Data module.
-3. Repository -> source. Tidak rumit bukan. Dengan monoid chain hal ini dapat menjadi sangat
+3. Repository API -> Source. Tidak rumit bukan. Dengan monoid chain hal ini dapat menjadi sangat
    sederhana, hanya memerlukan 2 step saja.
