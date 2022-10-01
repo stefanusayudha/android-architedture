@@ -21,6 +21,10 @@ rumit berarti salah". Jadi kita
 akan membuatnya sedikit lebih mudah dengan menghadirkan sebuah module baru pada gradle project ,
 yaitu : **Provider** dan **Igniter**
 
+Ide utama dari proyek ini adalah:
+1. Menghilangkan Horizontal dependency sepenuhnya, dengan memunculkan module baru yakni **Provider** dan **Igniter**.
+2. Menghilangkan state dari data layer, dengan memaksimalkan functional pattern pada data layer.
+
 # Project Arsitektur
 
 Projek arsitektur mencakup keseluruhan arsitektur dari gradle project kita. Tidak segala hal bisa
