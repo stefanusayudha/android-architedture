@@ -24,6 +24,7 @@ yaitu : **Provider** dan **Igniter**
 Ide utama dari proyek ini adalah:
 1. Menghilangkan Horizontal dependency sepenuhnya, dengan memunculkan module baru yakni **Provider** dan **Igniter**.
 2. Menghilangkan state dari data layer, dengan memaksimalkan functional pattern pada data layer.
+3. Me-lokalisasi side effect. Kita harus membatasi module yang bisa melakukan side effect dan sebisa mungkin menghilangkannya.
 
 # Project Arsitektur
 
@@ -103,7 +104,13 @@ Aplikasi front-end hanya terdiri dari 2 hal yakni **UI** dan **Data**. Seberapa 
 UI adalah module level tinggi, penuh dengan side-effect, lifecycle, configuration changes dan lain
 sebagainya. Module ini memang cukup rumit, oleh karena itu, prinsib SOLID dan Dependency injection
 akan sangat membantu kita. Tidak ada hal yang istimewa yang perlu saya sampaikan, gunakan ViewModel
-dan Injector seperti Koin atau Dagger.
+dan Injector seperti Koin atau Dagger. 
+
+**Note**: Sekalipun UI penuh dengan side effect, kita tidak boleh hanya memakluminya. Melainkan kita harus sebisa mungkin menghilangkannya.
+Dalam pemrograman android imperativ, saya biasanya hanya mengijinkan side effect terjadi di Controller (Fragment atau Activity class). 
+
+1. Tidak boleh ada side effect dimanapun selain pada controller module (Fragment Activity, Service dll). Misalnya saja sekalipun viewmodel dan adapter termasuk di dalam presentation module, mereka tidak boleh melakukan side effect karena tidak termasuk ke dalam kategori Controller Class. 
+2. Class dengan side effect tidak boleh melakukan "**Cross Responsibility Side Effect**"; Misal, Fragment mengimplementasikan kontrak A dan B, implementasi interface kontrak A melakukan side effect dengan menyimpan data di variable, dan implementasi interface kontrak B menggunakan data yang tersimpan tersebut, ini termasuk dalam **Cross Responsibility Side Effect**. Sangat di sarankan untuk module B, harus memiliki interface untuk menerima data tersebut secara langsung. dan Kontrak A boleh mengirimkan data ke Kontrak B dengan dependensi ke Kontrak B. Atau lebih baik lagi, Kontrak A menyediakan getter untuk data tersebut dan Kontrak B depend ke getter tersebut sesuai dengan **Dependency Inversion** principle.
 
 ## Data
 
