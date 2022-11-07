@@ -1,13 +1,12 @@
 android {
     kotlinOptions {
-        jvmTarget = rootProject.extra["jvmTarget"] as String
+        jvmTarget = "1.8"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion =
-            rootProject.extra["kotlinCompilerExtensionVersion"] as String
+        kotlinCompilerExtensionVersion = "1.1.1"
     }
 }
 

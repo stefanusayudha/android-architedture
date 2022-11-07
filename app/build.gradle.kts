@@ -1,21 +1,21 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
-    compileSdk = rootProject.extra["compileSdk"] as Int
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = rootProject.extra["applicationId"] as String
-        minSdk = rootProject.extra["minSdk"] as Int
-        targetSdk = rootProject.extra["targetSdk"] as Int
-        versionCode = rootProject.extra["versionCode"] as Int
-        versionName = rootProject.extra["versionName"] as String
+        applicationId = "com.stefanus_ayudha.basearchitecture"
+        minSdk = 28
+        targetSdk = 32
+        versionCode = 1
+        versionName = "1.0"
 
-        testInstrumentationRunner = rootProject.extra["testInstrumentationRunner"] as String
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
-            useSupportLibrary = rootProject.extra["vectorDrawables.useSupportLibrary"] as Boolean
+            useSupportLibrary = true
         }
     }
 

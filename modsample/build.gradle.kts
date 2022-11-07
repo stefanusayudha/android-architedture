@@ -16,13 +16,13 @@ subprojects {
 
     plugins.withType(BasePlugin::class.java).configureEach {
         configure<BaseExtension> {
-            compileSdkVersion(rootProject.extra["compileSdk"] as Int)
+            compileSdkVersion(33)
             defaultConfig {
-                minSdk = rootProject.extra["minSdk"] as Int
-                targetSdk = rootProject.extra["targetSdk"] as Int
-                versionCode = rootProject.extra["versionCode"] as Int
-                versionName = project.version.toString()
-                testInstrumentationRunner = rootProject.extra["testInstrumentationRunner"] as String
+                minSdk = 28
+                targetSdk = 32
+                versionCode = 1
+                versionName = "1.0"
+                testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
                 consumerProguardFiles("consumer-rules.pro")
             }

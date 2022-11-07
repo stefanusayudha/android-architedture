@@ -1,18 +1,16 @@
 android {
     kotlinOptions {
-        jvmTarget = rootProject.extra["jvmTarget"] as String
+        jvmTarget = "1.8"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion =
-            rootProject.extra["kotlinCompilerExtensionVersion"] as String
+        kotlinCompilerExtensionVersion = "1.1.1"
     }
 }
 
 dependencies {
     api(project(":control:provider"))
-    val thinkLogicBuilderVersion = rootProject.extra["thinkLogicBuilderVersion"]
-    kapt("com.thinkinglogic.builder:kotlin-builder-processor:$thinkLogicBuilderVersion")
+    kapt(libs.bundles.builder.kapt)
 }
