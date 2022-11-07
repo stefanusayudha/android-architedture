@@ -1,8 +1,8 @@
 package com.stefanus_ayudha.modsample.modulev1.data.src.web
 
-import com.stefanus_ayudha.core.common.util.koin.get
 import com.stefanus_ayudha.core.common.util.retrofit.createRetrofitService
 import com.stefanus_ayudha.core.network.data.Secured
+import com.stefanus_ayudha.core.network.util.okhttp.defaultOkhttp
 import com.stefanus_ayudha.modsample.modulev1.data.model.Todo
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -23,7 +23,7 @@ interface TodoListApi {
 val todoListWebApi by lazy {
     createRetrofitService(
         TodoListApi::class.java,
-        get(),
+        defaultOkhttp(),
         Secured.getBaseUrl()
     )
 }
