@@ -1,29 +1,18 @@
 # Welcome to My Architecture Design!
 
-Seberapa rumit seharusnya arsitektur dari sebuah software? 
-Bisakah ini menjadi lebih mudah? 
-Dependensi berputar, tidak memungkinkan untuk dilakukan.
-Runtime yang kacau dan tidak bisa di prediksi. 
-Dimana kita bisa menghentikan sumbu yang terbakar
-sebelum meledak?
-
-Orang mengatakan, tidak ada arsitektur yang sempurna. Saya cukup setuju, tetapi apa definisi
-sempurna itu? Apakah **Standar Minimal** dari sebuah arsitektur yang baik itu.
-
 Untuk mengukur seberapa baik sebuah arsitektur, kita membutuhkan base line (Standar minimum) dan sebuah alat untuk mengukur. 
-Baseline tersebut adalah prinsib-prinsib dan alat tersebut adalah **Alur dependensi** dan **Alur kerja**.
-Ya, arsitektur adalah tentang Flow Dependensi dan Flow Runtime. Hal-hal selain itu adalah preferensi saja.
+Base tersebut adalah **Alur Dependensi dan Alur Kerja** dan alat ukur tersebut adalah **Prinsib-prinsib pembuatan software**
+Arsitektur software adalah tentang Flow Dependensi dan Flow Runtime. Hal-hal selain itu adalah preferensi saja.
 
 Disini kita akan "**Back to Basic**" dengan konsern sepenuhnya pada **Flow dependensi** dan **Flow runtime**.
 
-Saya memiliki prinsib sederhana; "Jika
-rumit berarti salah". Jadi kita
-akan membuatnya sedikit lebih mudah dengan menghadirkan sebuah module baru pada gradle project ,
+Saya memiliki prinsib sederhana; "Jika rumit berarti salah". Jadi kita akan membuatnya sedikit lebih mudah dengan menghadirkan sebuah module baru pada gradle project ,
 yaitu : **Provider** dan **Igniter**
 
 Ide utama dari proyek ini adalah:
 1. Menghilangkan Horizontal dependency sepenuhnya, dengan memunculkan module baru yakni **Provider** dan **Igniter**.
 2. Menghilangkan state dari data layer, dengan memaksimalkan functional pattern pada data layer.
+3. Me-lokalisasi side effect. Kita harus membatasi module yang bisa melakukan side effect dan sebisa mungkin menghilangkannya.
 
 # Project Arsitektur
 
@@ -103,7 +92,13 @@ Aplikasi front-end hanya terdiri dari 2 hal yakni **UI** dan **Data**. Seberapa 
 UI adalah module level tinggi, penuh dengan side-effect, lifecycle, configuration changes dan lain
 sebagainya. Module ini memang cukup rumit, oleh karena itu, prinsib SOLID dan Dependency injection
 akan sangat membantu kita. Tidak ada hal yang istimewa yang perlu saya sampaikan, gunakan ViewModel
-dan Injector seperti Koin atau Dagger.
+dan Injector seperti Koin atau Dagger. 
+
+**Note**: Sekalipun UI penuh dengan side effect, kita tidak boleh hanya memakluminya. Melainkan kita harus sebisa mungkin menghilangkannya.
+Dalam pemrograman android imperativ, saya biasanya hanya mengijinkan side effect terjadi di Controller (Fragment atau Activity class). 
+
+1. Tidak boleh ada side effect dimanapun selain pada controller module (Fragment Activity, Service dll). Misalnya saja sekalipun viewmodel dan adapter termasuk di dalam presentation module, mereka tidak boleh melakukan side effect karena tidak termasuk ke dalam kategori Controller Class. 
+2. Class dengan side effect tidak boleh melakukan "**Cross Responsibility Side Effect**"; Misal, Fragment mengimplementasikan kontrak A dan B, implementasi interface kontrak A melakukan side effect dengan menyimpan data di variable, dan implementasi interface kontrak B menggunakan data yang tersimpan tersebut, ini termasuk dalam **Cross Responsibility Side Effect**. Sangat di sarankan untuk module B, harus memiliki interface untuk menerima data tersebut secara langsung. dan Kontrak A boleh mengirimkan data ke Kontrak B dengan dependensi ke Kontrak B. Atau lebih baik lagi, Kontrak A menyediakan getter untuk data tersebut dan Kontrak B depend ke getter tersebut sesuai dengan **Dependency Inversion** principle.
 
 ## Data
 
