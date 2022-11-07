@@ -1,24 +1,12 @@
 # Welcome to My Architecture Design!
 
-Seberapa rumit seharusnya arsitektur dari sebuah software? 
-Bisakah ini menjadi lebih mudah? 
-Dependensi berputar, tidak memungkinkan untuk dilakukan.
-Runtime yang kacau dan tidak bisa di prediksi. 
-Dimana kita bisa menghentikan sumbu yang terbakar
-sebelum meledak?
-
-Orang mengatakan, tidak ada arsitektur yang sempurna. Saya cukup setuju, tetapi apa definisi
-sempurna itu? Apakah **Standar Minimal** dari sebuah arsitektur yang baik itu.
-
 Untuk mengukur seberapa baik sebuah arsitektur, kita membutuhkan base line (Standar minimum) dan sebuah alat untuk mengukur. 
-Baseline tersebut adalah prinsib-prinsib dan alat tersebut adalah **Alur dependensi** dan **Alur kerja**.
-Ya, arsitektur adalah tentang Flow Dependensi dan Flow Runtime. Hal-hal selain itu adalah preferensi saja.
+Base tersebut adalah **Alur Dependensi dan Alur Kerja** dan alat ukur tersebut adalah **Prinsib-prinsib pembuatan software**
+Arsitektur software adalah tentang Flow Dependensi dan Flow Runtime. Hal-hal selain itu adalah preferensi saja.
 
 Disini kita akan "**Back to Basic**" dengan konsern sepenuhnya pada **Flow dependensi** dan **Flow runtime**.
 
-Saya memiliki prinsib sederhana; "Jika
-rumit berarti salah". Jadi kita
-akan membuatnya sedikit lebih mudah dengan menghadirkan sebuah module baru pada gradle project ,
+Saya memiliki prinsib sederhana; "Jika rumit berarti salah". Jadi kita akan membuatnya sedikit lebih mudah dengan menghadirkan sebuah module baru pada gradle project ,
 yaitu : **Provider** dan **Igniter**
 
 Ide utama dari proyek ini adalah:
