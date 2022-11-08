@@ -11,3 +11,8 @@ JNIEXPORT jstring JNICALL
 Java_com_stefanus_1ayudha_core_network_data_Secured_getBaseUrl(JNIEnv *env, jobject thiz) {
     return env->NewStringUTF("https://jsonplaceholder.typicode.com/");
 }
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_stefanus_1ayudha_core_network_data_Secured_getBasePokemonUrl(JNIEnv *env, jobject thiz) {
+    return  env->NewStringUTF("https://beta.pokeapi.co/graphql/v1beta");
+}

@@ -7,6 +7,7 @@ object Secured {
     }
 
     external fun getBaseUrl(): String
+    external fun getBasePokemonUrl(): String
 }
 
 const val BASE_URL = "BASE URL"

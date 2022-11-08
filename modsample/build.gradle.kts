@@ -65,6 +65,8 @@ subprojects {
 
 dependencies {
     constraints {
-        api(project(":modsample:modulev1"))
+        api(project(":modsample:pokemon"))
+        api(project(":modsample:splash"))
+        api(project(":modsample:todolist"))
     }
 }

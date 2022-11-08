@@ -5,5 +5,7 @@ dependencies {
 
     api(project(":control:provider"))
 
-    api(project(":modsample:modulev1"))
+    api(project(":modsample:splash"))
+    api(project(":modsample:pokemon"))
+    api(project(":modsample:todolist"))
 }

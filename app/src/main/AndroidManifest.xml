@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BaseArchitecture">
         <activity
-            android:name="com.stefanus_ayudha.modsample.modulev1.ui.activity.splash.SplashActivity"
+            android:name="com.stefanus_ayudha.modsample.splash.ui.activity.SplashActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.BaseArchitecture">
@@ -29,7 +29,10 @@
         </activity>
 
         <activity
-            android:name="com.stefanus_ayudha.modsample.modulev1.ui.activity.todolist.TodoActivity"
+            android:name="com.stefanus_ayudha.modsample.todolist.ui.activity.TodoActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.stefanus_ayudha.modsample.pokemon.ui.activity.PokemonActivity"
             android:exported="true" />
     </application>
 
